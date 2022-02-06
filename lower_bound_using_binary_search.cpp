@@ -16,7 +16,7 @@ int main()
     int id=0;
     while (lo<=hg)
     {
-        int mid=lo+(hg-lo)/2;  //mid ke liye sh hi use kre isse overflow nhi hoga 
+        int mid=lo+(hg-lo)/2;  //use it for find mid because it avoid overflow
         if(a[mid]>=k)          
         {hg=mid-1;
         id=mid;

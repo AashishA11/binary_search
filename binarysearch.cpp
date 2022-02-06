@@ -1,3 +1,30 @@
+/*
+https://www.spoj.com/problems/EKO/
+
+https://www.spoj.com/problems/AGGRCOW/
+
+https://www.spoj.com/problems/PIE/
+
+https://www.codechef.com/problems/MINEAT
+
+https://www.hackerearth.com/.../algor...
+
+https://www.hackerearth.com/.../algor...
+
+https://www.hackerearth.com/.../algor...
+
+https://codeforces.com/problemset/pro...
+
+https://codeforces.com/problemset/pro...
+
+https://www.interviewbit.com/problems...
+
+You can find more in below links, but you would have to filter:
+https://www.codechef.com/tags/problem...
+
+
+*/
+
 // C++ program to implement recursive Binary Search 
 #include <bits/stdc++.h> 
 using namespace std; 
@@ -12,7 +39,7 @@ int binarySearch(int arr[], int l, int r, int x)
   
         // Check if x is present at mid 
         if (arr[m] == x) 
-            return m;    // if we directily use in int main we rembear that use break 
+            return m;    // if we directily use in int main we remembear that use break 
   
         // If x greater, ignore left half 
         if (arr[m] < x) 
@@ -27,14 +54,35 @@ int binarySearch(int arr[], int l, int r, int x)
     // not present 
     return -1; 
 } 
-  
+void binarySearch(int v[],int to_find,int n){
+    int lo=0,hi=n-1;
+    int mid;
+    while(hi-lo>1){
+        int mid=(hi+lo)/2;
+        if(v[mid]<to_find){
+            lo=mid+1;
+        }
+        else{
+            hi=mid;
+        }
+    }
+    if(v[lo]==to_find){
+        cout<<lo<<endl;
+    }else if(v[hi]==to_find){
+        cout<<hi<<endl;
+    }else{
+        cout<<"Not Find"<<endl;
+    }
+}  
 int main(void) 
 { 
-    int arr[] = { 2, 3, 4, 10, 40 }; 
-    int x = 10; 
-    int n = sizeof(arr) / sizeof(arr[0]); 
-    int result = binarySearch(arr, 0, n - 1, x); 
-    (result == -1) ? cout << "Element is not present in array"
-                   : cout << "Element is present at index " << result; 
-    return 0; 
+     int n;
+     cin>>n;
+     int a[n];
+     for(int i=0;i<n;i++){
+         cin>>a[i];
+     }
+     int to_find;
+     cin>>to_find;
+     binarySearch(a,to_find,n);
 } 
